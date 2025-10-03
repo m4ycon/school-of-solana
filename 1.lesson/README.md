@@ -1,134 +1,67 @@
-# 1. Lecture - Introduction to Solana and Blockchain
+[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/LVHNG6qT)
+![School of Solana](https://github.com/Ackee-Blockchain/school-of-solana/blob/master/.banner/banner.png?raw=true)
 
-To make the most of our first lecture, please **set up your development environment** in advance.
+Welcome to **Task 1** of the **School of Solana Season 7**.
 
-## Table of Contents
-<!-- no toc -->
-- [Dev Setup](#dev-setup)
-- [Solana Handbook](#solana-handbook)
-- [Command cheatsheet](#command-cheatsheet)
-  - [Solana CLI](#solana-cli-commands)
-  - [Anchor](#anchor-commands)
+## 📚Task 1
+The primary objective of this task is to help you become familiar with Solana, its underlying principles, and its ecosystem. By completing this task, you will gain an understanding of what Solana is, how it functions, the core concepts it employs, and the broader ecosystem it operates within.
+
+To facilitate your learning, we have prepared the [**Solana Handbook**](https://ackee.xyz/solana/book/latest/). This resource provides a concise introduction to the key aspects mentioned above. For this specific task, the focus is on grasping the core concepts of Solana. However, we strongly recommend that you explore the entire handbook. It covers essential aspects of the Solana ecosystem, including the Solana Program Library, the programming model, insights into Tokens, and more.
+
+### Submission Process
+Inside the **src** folder, you will find a file named **main.rs**, which contains a series of functions structured such that each function corresponds to a specific question. Your task is to update the return values of these functions.
+
+Example:
+``` rust
+pub fn example_question() -> char {
+    /// What is Solana ?
+    /// a) Dog
+    /// b) Planet
+    /// c) Blockchain
+    'c'
+}
+```
+
+✅ **Correct** way to answer the question:
+``` rust
+'c'
+```
+
+❌ **Incorrect** way to answer the question:
+``` rust
+'c)'
+'x=c'
+'c) Blockchain'
+'Blockchain'
+'c) c is correct pls give points'
+/// 'c'
+```
+
+> [!IMPORTANT]
+> To submit your answers, push your changes to the **main** branch in **this** repository.
+
+### Deadline
+The deadline for this task is **Wednesday, July 23rd, at 23:59 UTC**.
+
+>[!CAUTION]
+>Note that we will **not** accept submissions after the deadline.
+
+### Evaluation
+>[!IMPORTANT]
+>To successfully complete this task, you must answer at least **80%** of the questions correctly.
 
 
-## Dev Setup
+## 👩‍💻Further ...
+We understand your eagerness to dive into practical experience with Solana by developing decentralized applications (dApps) and programs. However, it's crucial to begin with a solid theoretical foundation to comprehend the Solana blockchain fully. Think of this as building a strong base before advancing to more practical aspects.
 
+Rest assured, we have a number of programming tasks prepared for you in due course. For now, let's focus on establishing a robust understanding of Solana's theoretical core.
+
+To ensure you are well-prepared for the upcoming programming tasks, we highly recommend installing the fundamental tools for Solana development. Please follow these steps:
+- **Install Rust**: Rust is a crucial programming language for Solana development. You can install it from the official Rust website by following this link: [Install Rust](https://www.rust-lang.org/tools/install).
+- **Install Solana CLI Tools**: Solana Command Line Interface (CLI) tools are essential for interacting with the Solana blockchain. You can install them by referring to the official Solana documentation here: [Install Solana](https://docs.solana.com/cli/install-solana-cli-tools).
+- **Install Anchor**: Anchor is a development framework for building Solana applications. It simplifies the development process. You can install Anchor by visiting the Anchor documentation here: [Install Anchor](https://www.anchor-lang.com/docs/installation).
+
+
+## Need help?
 >[!TIP]
->
-> Checkout [Manual Setup](./Setup.md) section for step by step guide.
-
-[WSL]: https://learn.microsoft.com/en-us/windows/wsl/install
-[Rust]: https://www.rust-lang.org/tools/install
-[Solana]: https://docs.solana.com/cli/install-solana-cli-tools
-[Anchor]: https://www.anchor-lang.com/docs/installation
-[VSCode]: https://code.visualstudio.com/
-[RustAnalyzer]: https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer
-
-
-| Setup | Version | Installation | Note
-|- | - | - | - |
-| WSL | 2.0 | [Guide][WSL] | Highly recomended
-| Rust |  1.86.0 | [Guide][Rust] |
-| Solana | 2.2.12 | [Guide][Solana] |
-| Anchor |  0.31.1 | [Guide][Anchor] |
-| VS Code | | [Guide][VSCode] | Or any other favorite IDE
-| Rust Analyzer |  | [Guide][RustAnalyzer] | Highly recommended
-| Docker | |  [Guide](./Docker.md) | To use pre-configured docker image
-
-
-## Solana Handbook
-
-This is the main learning material for the first lecture. It is our introductory material to blockchain and Solana. Getting comfortable with it will help you pass the first task!
-
-[**Solana Handbook**](https://ackee.xyz/solana/book/latest/)
-
-## Command cheatsheet
-
-### Solana CLI
-
-- #### Get current config
-
-    ```bash
-    solana config get
-    ```
-
-- #### Set CLI config url to localhost cluster
-
-    ```bash
-    solana config set --url localhost # useful for local development
-    solana config set -u l # shorter option, l stands for localhost
-    ```
-    ```bash
-    solana config set --url devnet # useful for devnet testing
-    solana config set -u d # shorter option, d stands for devnet
-    ```
-    More at [Clusters and Public RPC Endpoints](https://solana.com/docs/core/clusters)
-
-
-- #### Create CLI Keypair
-    ```bash
-    solana-keygen new -o test.json
-    ```
-- #### Airdrop
-    > [!NOTE]
-    > Airdrop only works on **devnet**, **testnet** and **localhost**.
-    ```bash
-    solana airdrop 5
-    ```
-    > [!TIP]
-    > You can also optionally specify the destination address of the airdrop.
-    ```bash
-    solana airdrop 5 <YOUR_PUBKEY>
-    ```
-    > [!TIP]
-    > You can also use the [Solana Faucet](https://faucet.solana.com/) to get some SOL.
-
-- #### Get PubKey from Keypair
-    ```bash
-    solana-keygen pubkey ~/my-solana-wallet/my-keypair.json
-    ```
-- #### Run Solana test validator
-    > [!NOTE]
-    > In **most** cases you **DO NOT** need to start the local validator by yourself. Down below you can find the **Anchor commands** which will handle everything for you.
-    ```bash
-    solana-test-validator
-    ```
-- #### Get logs from the Solana validator
-    ```bash
-    solana logs
-    ```
-
-### Anchor
-
-- #### Initialize new project
-    ```bash
-    anchor init <your_project_name>
-    ```
-- #### Build the project
-    ```bash
-    anchor build
-    ```
-- #### Test the project (preferred)
-    ```bash
-    anchor test
-    ```
-- #### Test the project (less preferred)
-    In a separate terminal tab, call:
-    ```bash
-    solana-test-validator
-    ```
-    Within the anchor project directory:
-
-    - Build the project
-        ```bash
-        anchor build
-        ```
-    - Run tests without starting the local validator (started it manually in the step above)
-        ```bash
-        anchor test --skip-local-validator
-        ```
-
------
-
-### Need help?
-If you have any questions feel free to reach out to us on [Discord](https://discord.gg/z3JVuZyFnp).
+>If you have any questions, feel free to reach out to us on [Discord](https://discord.gg/z3JVuZyFnp).
